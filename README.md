@@ -1,16 +1,15 @@
-# 🛡️ Workstation AI Agent Rules & Skills (`.agents`)
+# Workstation AI Agent Rules & Skills (.agents)
 
-Centralized rules, anti-ai-slop design standards, and capabilities for all AI coding agents on this workstation (**Antigravity, Claude Code, OpenCode, Cline, Freebuff, Cursor**).
+Centralized rules, anti-ai-slop design standards, and capabilities for all AI coding agents on this workstation (Antigravity, Claude Code, OpenCode, Cline, Freebuff, Cursor, Aider).
 
 ---
 
-## ⚡ Quick Device Setup
+## Quick Device Setup
 
 When setting up a new workstation, laptop, or fresh OS installation:
 
 ### 1. Clone to Home Directory
 ```bash
-# Clone to ~/.agents
 git clone https://github.com/Natoy0123/agents.git ~/.agents
 ```
 
@@ -37,21 +36,23 @@ cp -r ~/.agents/skills/* ~/.cline/skills/
 
 ---
 
-## 📜 Universal Rules (`rules/AGENTS.md`)
+## Universal Rules (rules/AGENTS.md)
 
 1. **Anti-AI-Slop UI & Design Standards**:
    - **Strictly No Emojis**: Never use emojis in UI strings, buttons, category chips, card badges, logs, comments, or documentation. Use authentic vector flaticons (Lucide React / Material SVGs).
-   - **Zero AI Aesthetic Tropes**: No pulsing neon status dots (`animate-pulse`), no nested dark border containers (`rounded-3xl` > `rounded-2xl` > `rounded-xl`), no exaggerated neon glows or rainbow gradients, no uppercase screaming badges (`FLUX.1 KONTEXT PRO`, `STRICT`, `FLEXIBLE`).
-   - **Human-Centric UI Copy**: Conversational, plain-language UX copy suitable for real humans. Never expose raw backend variables, database field names, prompt engineering syntax, or internal pipeline jargon.
-   - **Mobile Ergonomics**: Minimum 44px tap targets, single natural scroll flows (banning `overflow-y-auto` inside `overflow-y-auto`), and safe-area clearance above bottom navigation bars.
-2. **Pre-Change Evidence Gate**:
-   - Re-read relevant files and inspect actual system state before asserting claims or modifying files.
-   - Never code first on assumptions; verify existing behavior and state first.
-3. **Continuous Build Verification & Testing Gates**:
-   - Run lint checks (`npm run lint`, `oxlint`, `./gradlew lint`) and automated test suites (`npm test`) before reporting completion.
-4. **Architecture & Layer Hygiene**:
-   - Respect Clean Architecture layer boundaries: presentation, domain, and data layers remain decoupled.
-   - Maintain unidirectional imports; keep view state colocated.
+   - **Zero AI Aesthetic Tropes**: No purple-cyan gradient soup, no glowing neon box shadows, no glassmorphism clutter, no pulsing neon status dots (`animate-pulse`), no nested dark border containers (`rounded-3xl` > `rounded-2xl` > `rounded-xl`), no uppercase screaming badges (`FLUX.1 KONTEXT PRO`, `STRICT`).
+   - **Human-Centric UI Copy**: Conversational, plain-language UX copy. Eliminate marketing boilerplate (*"Unlock the power of..."*, *"Seamlessly integrate..."*) and fake authority statistics.
+   - **Mobile Ergonomics & Semantic HTML**: Minimum 44px tap targets, single natural scroll flows, semantic HTML interactive elements (`<button>`, `<a>`, `<dialog>`), keyboard navigation, and WCAG AA contrast.
+2. **Architecture & Code Hygiene**:
+   - Component boundary target: under 250–300 lines; no monolithic "God components" with inline mock soup.
+   - Respect Clean Architecture layer isolation.
+   - Maintain dependency frugality; use native APIs and existing packages first.
+   - Surgical, minimal diffs; no shotgun surgery across unrelated files.
+3. **Anti-Hallucination & Evidence Gates**:
+   - Zero lazy stubs or placeholder comments (`// TODO: implement later`).
+   - Physical evidence verification: execute test, lint, and build commands before declaring completion.
+4. **Tool-Driven Linting & Formatting**:
+   - Outsource formatting and style to automated tools (`oxlint`, `eslint`, `prettier`, `biome`, `dart analyze`).
 5. **Security & Privacy**:
    - Zero hardcoded secrets, tokens, or credentials in code or logs.
    - Validate and sanitize all untrusted user inputs according to OWASP guidelines.
@@ -61,9 +62,11 @@ cp -r ~/.agents/skills/* ~/.cline/skills/
 
 ---
 
-## 🛠️ Included Global Skills (`skills/`)
+## Included Global Skills (skills/)
 
 - **anti-ai-slop** (`skills/anti-ai-slop/SKILL.md`) - Enforces human-crafted UI/UX quality standards, bans emojis, eliminates AI-slop design tropes.
+- **anti-ai-copy** (`skills/anti-ai-copy/SKILL.md`) - Strips generative AI copywriting clichés, marketing fluff, fake metrics, and throat-clearing prose.
+- **code-hygiene** (`skills/code-hygiene/SKILL.md`) - Enforces zero lazy stubs, dependency frugality, surgical diffs, and verification gates.
 - **caveman** (`skills/caveman/SKILL.md`) - Token-efficient communication protocol and sub-skills (`caveman-commit`, `caveman-review`, `caveman-compress`, `caveman-help`).
 - **clean-architecture** (`skills/clean-architecture/SKILL.md`) - Clean Architecture invariants, layer isolation, and dependency rules.
 - **graphify** (`skills/graphify/SKILL.md`) - Transforms codebase, documentation, and inputs into persistent knowledge graphs.
@@ -73,5 +76,5 @@ cp -r ~/.agents/skills/* ~/.cline/skills/
 
 ---
 
-## 📄 License
+## License
 MIT License.
